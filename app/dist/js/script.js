@@ -3,12 +3,12 @@ const sidebarOverlay = document.querySelector('.sidebar-overlay')
 const sidebarMenu = document.querySelector('.sidebar-menu')
 const main = document.querySelector('.main')
 if(window.innerWidth < 768) {
-    main.classList.toggle('active')
-    sidebarOverlay.classList.toggle('hidden')
-    sidebarMenu.classList.toggle('-translate-x-full')
+    main.classList.add('active')
+    sidebarOverlay.classList.remove('hidden')
+    sidebarMenu.classList.add('-translate-x-full')
 }
 sidebarToggle.addEventListener('click', function (e) {
-    e.preventDefault() 
+    e.preventDefault()
     main.classList.toggle('active')
     sidebarOverlay.classList.toggle('hidden')
     sidebarMenu.classList.toggle('-translate-x-full')
@@ -128,3 +128,27 @@ function hidePopper(popperId) {
         }
     });
 }
+
+$(function() {
+
+    $('.tampilModalUbah').on('click', function(){
+  
+        const id = $(this).data('id');
+  
+        $.ajax({
+          url: 'http://localhost/functional-programming/fangpro/public/Pasien/getUbahPasien',
+          data: {id : id},
+          method: 'post',
+          dataType: 'json',
+          success: function(data) {
+            $('#ID_Pasien').val(data.ID_Pasien);
+            $('#nama').val(data.nama);
+            $('#jenis_kelamin').val(data.jenis_kelamin);
+            $('#Tanggal_Lahir').val(data.Tanggal_Lahir);
+            $('#Alamat').val(data.Alamat);
+            $('#Poli').val(data.Poli);
+            $('#Status').val(data.Status);
+          }
+        });
+    })
+});

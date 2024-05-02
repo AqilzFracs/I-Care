@@ -7,25 +7,25 @@
       </a>
       <ul class="mt-4">
         <li class="mb-2 group">
-            <a href="http://localhost/I-Care/view/dashboard/index.html" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+            <a href="<?= BASEURL ?>/Dashboard" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
               <i class="ri-home-2-line mr-2 text-xl"></i>
               <span class="text-base">Dashboard</span>
             </a>
         </li>
         <li class="mb-2 group">
-            <a href="http://localhost/I-Care/view/pasien/index.html" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+            <a href="<?= BASEURL ?>/Pasien" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
               <i class="ri-user-3-line mr-2 text-xl"></i>
               <span class="text-base">Pasien</span>
             </a>
         </li>
         <li class="mb-2 group">
-            <a href="" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+            <a href="<?= BASEURL ?>/InsertDataPasien" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
               <i class="ri-insert-row-top mr-2 text-xl"></i>
               <span class="text-base">Tambah Pasien</span>
             </a>
         </li>
         <li class="items-baseline mb-2">
-            <a href="" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
+            <a href="<?= BASEURL ?>" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
               <i class="ri-logout-box-r-line mr-2 text-xl"></i>
               <span class="text-base">Logout</span>
             </a>
@@ -77,7 +77,7 @@
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
             <div class="flex justify-between mb-6">
                 <div>
-                    <div class="text-2xl font-semibold mb-1">150</div>
+                    <div class="text-2xl font-semibold mb-1"> <?= $data["jumlahPasien"]; ?></div>
                     <div class="text-sm font-medium text-gray-400">Pasien</div>
                 </div>
             </div>
