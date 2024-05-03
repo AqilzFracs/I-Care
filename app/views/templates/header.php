@@ -7,7 +7,7 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="<?= BASEURLAPP; ?> /dist/css/style.css">
+  <link rel="stylesheet" href="http://localhost/I-Care/app/dist/css/style.css">
   <title>I-Care</title>
 </head>
 <body class="text-gray-800 font-poppins">

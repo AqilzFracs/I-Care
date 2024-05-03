@@ -104,8 +104,8 @@
               <td class="p-3 text-sm text-gray-700"><?= $psn['Poli']; ?></td>
               <td class="p-3 text-sm text-gray-700"><?= $psn['Status']; ?></td>
               <td><div>
-                <button class="bg-green-600 hover:bg-green-900 text-white hover:text-gray-200 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-blue-400 inline-flex items-center justify-center" onclick=openmodal(<?= $psn['ID_Pasien']; ?>)>Edit</button>
-                <a data-bs-toggle="modal" data-bs-target="#formModal" href="<?= BASEURL; ?>/Pasien/hapusPasien/<?= $psn['ID_Pasien']; ?>" class="tampilModalUbah bg-red-600 hover:bg-red-900 text-white hover:text-gray-200 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-blue-400 inline-flex items-center justify-center" data-id="<?= $psn['ID_Pasien']; ?>" onclick="return confirm('Apakah anda yakin')">Hapus</a></td>
+                <button href="<?= BASEURL; ?>/Pasien/editPasien/<?= $psn['ID_Pasien']; ?>" class="bg-green-600 hover:bg-green-900 text-white hover:text-gray-200 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-blue-400 inline-flex items-center justify-center" onclick=openModal(<?= $psn['ID_Pasien']; ?>)>Edit</button>
+                <a href="<?= BASEURL; ?>/Pasien/hapusPasien/<?= $psn['ID_Pasien']; ?>" class="tampilModalUbah bg-red-600 hover:bg-red-900 text-white hover:text-gray-200 text-sm font-medium me-2 px-2.5 py-0.5 rounded border border-blue-400 inline-flex items-center justify-center" data-id="<?= $psn['ID_Pasien']; ?>" onclick="return confirm('Apakah anda yakin')">Hapus</a></td>
               </div>
             </tr>          
           <?php endforeach ?>
@@ -113,20 +113,20 @@
       </table>
     </div>
     
-    <div id="crud-modal" tabindex="-1" aria-hidden="true"
-        class="hidden relative overflow-y-auto overflow-x-hidden z-50 justify-center items-center w-full md:inset-0">
+    <div id="editModal" tabindex="-1" aria-hidden="true"
+        class="hidden flex fixed z-50 justify-center items-center w-full inset-0">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="relative bg-gray-100 rounded-lg shadow">
                 <!-- Modal header -->
                 <div
                     class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-black">
                         Edit Product
                     </h3>
                     <button type="button" onclick=closeModal();
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-toggle="crud-modal">
+                        data-modal-toggle="editModal">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -136,7 +136,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="<?= BASEURL; ?>/Pasien/tambahPasien" method="post" enctype="multipart/form-data">
+                <form action="<?= BASEURL; ?>/Pasien/editPasien" method="post" enctype="multipart/form-data">
                   <input type="hidden" id="ID_Pasien" name="ID_Pasien">
                   <div class="mb-5">
                       <label for="nama" class="block mb-2 text-sm font-medium text-black">Nama Pasien</label>
@@ -180,10 +180,6 @@
                         <option value="Belum Lunas">Belum Lunas</option>
                       </select>
                   </div>
-                  <div class="mb-5">
-                    <label for="image" class="block mb-2 text-sm font-medium text-black">Upload Gambar</label>
-                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-200 p-3 focus:outline-none" id="image" name="image" type="file">
-                  </div>
                   <div>
                     <button type="submit" name="submit" class="focus:outline-none text-white bg-green-800 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Tambah Data</button>
                   </div>
@@ -193,19 +189,18 @@
     </div>
 
     <script>
-      function openModal(pasienId) {
-          var modal = document.getElementById("crud-modal");
-          modal.classList.remove("hidden");
-          const idPasien = document.getElementById('ID_Pasien');
-          idPasien.value = pasienId; // Set nilai input tersembunyi
-          console.log(idPasien.value)
-      }
+    function openModal(productId) {
+        var modal = document.getElementById("editModal");
+        modal.classList.remove("hidden");
+        const idProduct = document.getElementById('id');
+        idProduct.value = productId; // Set nilai input tersembunyi
+        console.log(idProduct.value)
+    }
 
-      function closeModal() {
-          var modal = document.getElementById("crud-modal");
-          // modal.classList.remove("block");
-          modal.classList.add("hidden");
-      }
-
+    function closeModal() {
+        var modal = document.getElementById("editModal");
+        // modal.classList.remove("block");
+        modal.classList.add("hidden");
+    }
     </script>
   </main>
