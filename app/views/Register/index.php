@@ -11,8 +11,8 @@
 <body>
     
     <div class="wrapper">
-        <form action="<?= BASEURL; ?>/Login/loginUser" method="post">
-            <h1>Login</h1>
+        <form action="<?= BASEURL; ?>/Register/registerUser" method="post">
+            <h1>Register</h1>
             <div class="input-box">
                 <input type="text" id="username" name="username" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
@@ -21,10 +21,10 @@
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
-            <div class="pb-10 text-white">
-                <p><a href="<?= BASEURL ?>/Register">Don't have an account yet? Register here</a></p>
+            <div class="pb-10 text-white items-center justify-center">
+                <p><a href="<?= BASEURL ?>">Back</a></p>
             </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn">Register</button>
         </form>
     </div>
 </body>
