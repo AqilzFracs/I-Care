@@ -272,12 +272,19 @@ header .btn {
 }
 
 
+
 .card-body {
   flex-grow: 1;
 }
 
 .card {
   min-height: 150px; /* Adjust this value to your needs */
+}
+
+.img-fixed-size {
+  width: 100px;  /* Sesuaikan ukuran sesuai keinginan Anda */
+  height: 100px;  /* Sesuaikan ukuran sesuai keinginan Anda */
+  object-fit: cover;  /* Memastikan gambar tetap dalam proporsi meskipun dipotong */
 }
 
 .list-group-item {

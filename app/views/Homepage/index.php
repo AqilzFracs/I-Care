@@ -9,46 +9,26 @@
     </section>
 
     <!-- Benefits Section -->
+
     <section class="benefits py-5 bg-light">
         <div class="container text-center">
             <h2>Kelebihan I-Care</h2>
             <div class="row">
+                
+            <?php foreach ($data["dokter"] as $dokter) : ?>
                 <div class="col-md-3">
                     <div class="card text-bg-primary mb-3 equal-height" style="background: linear-gradient(to bottom, #4580F9, #2F64D1); color:#ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
-                        <div class="card-header">Experienced mentors</div>
-                        <div class="card-body">
-                            <p class="card-text">All the mentors are very experienced in this industry. They can help you.</p>
+                        <div class="card-header" style="min-height: 5rem; display:flex; justify-content:center; align-items:center;"><?= $dokter['nama_Dokter']; ?></div>
+                        <div class="card-body p-4">
+                            <img class="img-fixed-size object-cover rounded-sm" src="<?= BASEURL ?>/img/<?= basename($dokter['image_path']); ?>" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card text-bg-primary mb-3 equal-height" style="background: linear-gradient(to bottom, #FF7065, #EE2010); color:#ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
-                        <div class="card-header">24/7 Study Anywhere</div>
-                        <div class="card-body">
-                            <p class="card-text">By studying online you can learn anytime and anywhere without the need.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-bg-primary mb-3 equal-height" style="background: linear-gradient(to bottom, #FFDA9F, #FAB446); color:#ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
-                        <div class="card-header">E-Book Everyweek</div>
-                        <div class="card-body">
-                            <p class="card-text">Every week you will get a free e-book that you can read according to your.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-bg-primary mb-3 equal-height" style="background: linear-gradient(to bottom, #ECE1FF, #CCAAFF); color:#ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
-                        <div class="card-header">Affordable Prices</div>
-                        <div class="card-body">
-                            <p class="card-text">Studying here is very affordable and you will get discounts that will help you.</p>
-                        </div>
-                    </div>
-                </div>
+            <?php endforeach ?>
+
             </div>
         </div>
     </section>
-
 
 
     <!-- Testimonials Section -->

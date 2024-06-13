@@ -6,6 +6,7 @@ class homepage extends Controller{
     if ($this->isLoggedIn())
     {
     $data["judul"] = "Hompage I-Care";
+    $data["dokter"] = $this->model("Dokter_model")->getAllDokter();
     $this->view("templatesPasien/header", $data);
     $this->view("Homepage/index", $data);
     $this->view("templatesPasien/footer");
