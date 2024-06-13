@@ -59,14 +59,13 @@ class Dokter_model
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
           $query = "INSERT INTO dokter
             VALUES
-          ('', :nama_Dokter, :spesialisasi, :alamat, :telepon, :jadwal_dokter, :image_path)";
+          ('', :nama_Dokter, :spesialisasi, :alamat, :telepon, :image_path)";
 
           $this->db->query($query);
           $this->db->bind("nama_Dokter", $data["nama_Dokter"]);
           $this->db->bind("spesialisasi", $data["spesialisasi"]);
           $this->db->bind("alamat", $data["alamat"]);
           $this->db->bind("telepon", $data["telepon"]);
-          $this->db->bind("jadwal_dokter", $data["jadwal_dokter"]);
           $this->db->bind("image_path", $target_file);
 
 
@@ -92,7 +91,6 @@ class Dokter_model
               spesialisasi = :spesialisasi,
               alamat = :alamat,
               telepon = :telepon,
-              jadwal_dokter = :jadwal_dokter
             WHERE ID_Dokter = :ID_Dokter;";
     
     $this->db->query($query);
@@ -101,7 +99,6 @@ class Dokter_model
     $this->db->bind('spesialisasi', $data['spesialisasi']);
     $this->db->bind('alamat', $data['alamat']);
     $this->db->bind('telepon', $data['telepon']);
-    $this->db->bind('jadwal_dokter', $data['jadwal_dokter']);
 
 
     $boundQuery = $this->db->queryString();
@@ -111,6 +108,17 @@ class Dokter_model
     return $this->db->rowCount();
 
   }
+
+  public function getDokterWithJadwal() {
+    $query = "SELECT d.ID_Dokter AS dokter_id, d.nama_Dokter, d.image_path, j.hari, j.jam_mulai, j.jam_selesai
+              FROM dokter d
+              JOIN dokter_jadwal dj ON d.ID_Dokter = dj.dokter_id
+              JOIN jadwal j ON dj.jadwal_id = j.id
+              ORDER BY d.ID_Dokter, FIELD(j.hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'), j.jam_mulai";
+
+    $this->db->query($query);
+    return $this->db->resultSet();
+}
 
   public function hapusDataDokter($id)
   {

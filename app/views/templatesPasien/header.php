@@ -17,10 +17,8 @@
             <nav>
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link" href="<?php echo BASEURL; ?>/Homepage">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/Inspirasi">Jadwal Dokter</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/Job">Job</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/JadwalDokter">Jadwal Dokter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/DaftarPasien">DaftarPasien</a></li>
                 </ul>
             </nav>
             <div>

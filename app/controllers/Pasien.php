@@ -23,6 +23,19 @@ class Pasien extends Controller {
     }
   }
 
+  public function tambahPasienOnline()
+  {
+    if ($this->model("Pasien_model")->tambahDataPasienOnline($_POST) > 0){
+      Flasher::setFlash('Data Pasien', 'berhasil', 'ditambahkan', 'success');
+      header("Location:" . BASEURL . "/Homepage");
+      exit;
+    } else{
+      Flasher::setFlash('Data Pasien', 'gagal', 'ditambahkan', 'danger');
+      header("Location:" . BASEURL . "/Homepage");
+      exit;
+    }
+  }
+
   public function getUbahPasien()
   {
     echo json_encode($this->model("Pasien_model")->getPasienById($_POST["id"]));

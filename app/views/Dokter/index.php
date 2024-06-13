@@ -186,19 +186,6 @@
       </div>
 
       <script>
-      // function openModal(dokterID) {
-      //     var modal = document.getElementById("editModal");
-      //     modal.classList.remove("hidden");
-      //     const idDokter = document.getElementById('id');
-      //     idDokter.value = dokterID;
-      //     console.log(idDokter.value)
-      // }
-
-      // function closeModal() {
-      //     var modal = document.getElementById("editModal");
-      //     // modal.classList.remove("block");
-      //     modal.classList.add("hidden");
-      // }
       function openModal(dokterID) {
             var modal = document.getElementById("editModal");
             modal.classList.remove("hidden");

@@ -193,13 +193,6 @@
     </div>
 
     <script>
-    // function openModal(productId) {
-    //     var modal = document.getElementById("editModal");
-    //     modal.classList.remove("hidden");
-    //     const idProduct = document.getElementById('id');
-    //     idProduct.value = productId;
-    //     console.log(idProduct.value)
-    // }
     function openModal(productId) {
       var modal = document.getElementById("editModal");
       modal.classList.remove("hidden");
@@ -210,9 +203,6 @@
       var modal = document.getElementById("editModal");
       modal.classList.add("hidden");
     }
-    // function closeModal() {
-    //     var modal = document.getElementById("editModal");
-    //     modal.classList.add("hidden");
-    // }
+
     </script>
   </main>

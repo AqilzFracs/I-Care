@@ -12,7 +12,7 @@
 
     <section class="benefits py-5 bg-light">
         <div class="container text-center">
-            <h2>Kelebihan I-Care</h2>
+            <h2>Dokter I-Care</h2>
             <div class="row">
                 
             <?php foreach ($data["dokter"] as $dokter) : ?>
@@ -30,24 +30,11 @@
         </div>
     </section>
 
-
-    <!-- Testimonials Section -->
-    <section class="testimonials py-5">
-        <div class="container text-center">
-            <h2>What They Say About Us</h2>
-            <blockquote>
-                <p>"Lorem ipsum dolor sit amet consectetur. Nibh proin proin eget neque. Tortor tempus massa dui viverra in justo gravida."</p>
-                <footer>— Resky Fernanda, Product Designer at Tokopedia</footer>
-            </blockquote>
-        </div>
-    </section>
-
     <!-- Call to Action Section -->
     <section class="cta py-5">
         <div class="container text-center">
-            <h2>Join World's Largest Learning Platform Today</h2>
-            <p>Start learning by registering for free</p>
-            <a href="<?= BASEURL ?>/Signup" class="btn btn-outline-light">Sign up for Free</a>
+            <h2>Cegah Penyakit dengan Layanan Kesehatan Terbaik</h2>
+            <p>Mulai konsultasi kesehatan dengan mendaftar sekarang</p>
         </div>
     </section>
 </body>

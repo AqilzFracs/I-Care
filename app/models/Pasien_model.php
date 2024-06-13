@@ -77,6 +77,25 @@ class Pasien_model
 
   }
 
+  public function tambahDataPasienOnline($data)
+  {
+    $query = "INSERT INTO pasien
+                VALUES
+            ('', :nama, :jenis_kelamin, :Tanggal_Lahir, :Alamat, :Poli, 'Belum Lunas')";
+    
+    $this->db->query($query);
+    $this->db->bind("nama", $data["nama"]);
+    $this->db->bind("jenis_kelamin", $data["jenis_kelamin"]);
+    $this->db->bind("Tanggal_Lahir", $data["Tanggal_Lahir"]);
+    $this->db->bind("Alamat", $data["Alamat"]);
+    $this->db->bind("Poli", $data["Poli"]);
+    // $this->db->bind("Status", $data["Status"]);
+
+    $this->db->execute();
+    return $this->db->rowCount();
+
+  }
+
 
   public function getPasienById($id)
   {
