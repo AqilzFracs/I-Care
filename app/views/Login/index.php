@@ -22,7 +22,7 @@
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
-            <div class="pb-10 text-white">
+            <div class="register-link pb-10 text-white">
                 <p><a href="<?= BASEURL ?>/Register">Don't have an account yet? Register here</a></p>
             </div>
             <button type="submit" class="btn">Login</button>
