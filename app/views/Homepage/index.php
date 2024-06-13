@@ -16,7 +16,7 @@
             <div class="row">
                 
             <?php foreach ($data["dokter"] as $dokter) : ?>
-                <div class="col-md-3">
+                <div class="col-md-3 pb-4">
                     <div class="card text-bg-primary mb-3 equal-height" style="background: linear-gradient(to bottom, #4580F9, #2F64D1); color:#ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
                         <div class="card-header" style="min-height: 5rem; display:flex; justify-content:center; align-items:center;"><?= $dokter['nama_Dokter']; ?></div>
                         <div class="card-body p-4">
