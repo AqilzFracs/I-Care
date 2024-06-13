@@ -31,10 +31,10 @@
             </a>
         </li>
         <li class="mb-2 group">
-          <a href="<?= BASEURL ?>/InsertDataDokter" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
-            <i class="ri-insert-row-top mr-2 text-xl"></i>
-            <span class="text-base">Tambah Dokter</span>
-          </a>
+            <a href="<?= BASEURL ?>/InsertDataDokter" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+              <i class="ri-insert-row-top mr-2 text-xl"></i>
+              <span class="text-base">Tambah Dokter</span>
+            </a>
         </li>
         <li class="items-baseline mb-2">
             <a href="<?= BASEURL ?>/Login/logout" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
@@ -82,30 +82,15 @@
       </ul>
     </div>
     <div class="p-5 h-screen bg-gray-50">
-      <h1 class="text-2xl pt-2 mb-2">Tambah Data Pasien</h1>
-      <form action="<?= BASEURL; ?>/Pasien/tambahPasien" method="post" enctype="multipart/form-data">
+      <h1 class="text-2xl pt-2 mb-2">Tambah Data Dokter</h1>
+      <form action="<?= BASEURL; ?>/Dokter/tambahDokter" method="post" enctype="multipart/form-data">
         <div class="mb-5">
-            <label for="nama" class="block mb-2 text-sm font-medium text-black">Nama Pasien</label>
-            <input type="text" id="nama" name="nama" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
+            <label for="nama_Dokter" class="block mb-2 text-sm font-medium text-black">Nama Dokter</label>
+            <input type="text" id="nama_Dokter" name="nama_Dokter" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
         </div>
         <div class="mb-5">
-            <label for="jenis_kelamin" class="block mb-2 text-sm font-medium text-black">Jenis Kelamin</label>
-            <select type="text" id="jenis_kelamin" name="jenis_kelamin" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
-              <option value="L" selected>Laki-Laki</option>
-              <option value="P">Perempuan</option>
-            </select>
-        </div>
-        <div class="mb-5">
-            <label for="Tanggal_Lahir" class="block mb-2 text-sm font-medium text-black">TTL</label>
-            <input type="text" id="Tanggal_Lahir" name="Tanggal_Lahir" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
-        </div>
-        <div class="mb-5">
-            <label for="Alamat" class="block mb-2 text-sm font-medium text-black">Alamat</label>
-            <input type="text" id="Alamat" name="Alamat" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
-        </div>
-        <div class="mb-5">
-            <label for="Poli" class="block mb-2 text-sm font-medium text-black">Poli</label>
-            <select id="Poli" name="Poli" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+            <label for="spesialisasi" class="block mb-2 text-sm font-medium text-black">Spesialisasi</label>
+            <select type="text" id="spesialisasi" name="spesialisasi" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
               <option value="Umum" selected>Umum</option>
               <option value="Penyakit Dalam">Penyakit Dalam</option>
               <option value="Anak">Anak</option>
@@ -120,11 +105,19 @@
             </select>
         </div>
         <div class="mb-5">
-            <label for="Status" class="block mb-2 text-sm font-medium text-black">Status Pembayaran</label>
-            <select type="text" id="Status" name="Status" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
-              <option value="Lunas" selected>Lunas</option>
-              <option value="Belum Lunas">Belum Lunas</option>
-            </select>
+            <label for="alamat" class="block mb-2 text-sm font-medium text-black">Alamat</label>
+            <input type="text" id="alamat" name="alamat" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
+        </div>
+        <div class="mb-5">
+            <label for="telepon" class="block mb-2 text-sm font-medium text-black">No. Telepon</label>
+            <input type="text" id="telepon" name="telepon" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
+        </div>
+        <div class="mb-5">
+            <label for="jadwal_dokter" class="block mb-2 text-sm font-medium text-black">Jadwal Dokter</label>
+            <input type="text" id="jadwal_dokter" name="jadwal_dokter" class="bg-gray-200 p-3 border border-green-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" required>
+        <div class="mb-5">
+          <label for="image" class="block mb-2 text-sm font-medium text-black">Upload Gambar</label>
+          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-200 p-3 focus:outline-none" id="image" name="image" type="file">
         </div>
         <div>
           <button type="submit" name="submit" class="focus:outline-none text-white bg-green-800 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Tambah Data</button>

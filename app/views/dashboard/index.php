@@ -2,7 +2,7 @@
   <!-- start: Sidebar -->
   <div class="fixed left-0 top-0 w-64 h-full bg-green-900 z-50 sidebar-menu transition-transform">
       <a href="" class="flex items-center pb-4 border-b border-b-white">
-        <img src="https://placehold.co/32x32" alt="" class="mt-2 ml-2 w-10 h-10 rounded object-cover"> 
+        <img src="img/I-Care.png" alt="" class="mt-2 ml-2 w-10 h-10 rounded object-cover"> 
         <span class="text-lg font-bold text-white ml-3">I-Care</span>
       </a>
       <ul class="mt-4">
@@ -19,13 +19,25 @@
             </a>
         </li>
         <li class="mb-2 group">
+            <a href="<?= BASEURL ?>/Dokter" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+              <i class="ri-user-3-line mr-2 text-xl"></i>
+              <span class="text-base">Dokter</span>
+            </a>
+        </li>
+        <li class="mb-2 group">
             <a href="<?= BASEURL ?>/InsertDataPasien" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
               <i class="ri-insert-row-top mr-2 text-xl"></i>
               <span class="text-base">Tambah Pasien</span>
             </a>
         </li>
+        <li class="mb-2 group">
+            <a href="<?= BASEURL ?>/InsertDataDokter" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+              <i class="ri-insert-row-top mr-2 text-xl"></i>
+              <span class="text-base">Tambah Dokter</span>
+            </a>
+        </li>
         <li class="items-baseline mb-2">
-            <a href="<?= BASEURL ?>" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
+            <a href="<?= BASEURL ?>/Login/logout" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
               <i class="ri-logout-box-r-line mr-2 text-xl"></i>
               <span class="text-base">Logout</span>
             </a>
@@ -48,9 +60,6 @@
       </ul>
       <ul class="ml-auto flex items-center">
         <li class="mr-1 dropdown">
-          <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:text-green-950">
-            <i class="ri-search-line"></i>
-          </button>
           <div class="hidden dropdown-menu shadow-md shadow-black/5 absolute max-w-xs w-full bg-white rounded-md border border-gray-100">
             <form action="" class="p-4 border-b border-b-gray-100">
               <div class="relative w-full">
@@ -81,32 +90,14 @@
                     <div class="text-sm font-medium text-gray-400">Pasien</div>
                 </div>
             </div>
-            <div class="flex items-center">
-              <div class="w-full bg-gray-100 rounded-full h-4">
-                  <div class="h-full bg-green-800 rounded-full p-1" style="width: 60%;">
-                      <div class="w-2 h-2 rounded-full bg-white ml-auto"></div>
-                  </div>
-              </div>
-              <span class="text-sm font-medium text-gray-600 ml-4">60%</span>
-            </div>
         </div>
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
           <div class="flex justify-between mb-4">
               <div>
                   <div class="flex items-center mb-1">
-                      <div class="text-2xl font-semibold">20</div>
+                      <div class="text-2xl font-semibold"><?= $data["jumlahDokter"]; ?> </div>
                   </div>
                   <div class="text-sm font-medium text-gray-400">Dokter</div>
-              </div>
-          </div>       
-        </div>
-        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-          <div class="flex justify-between mb-4">
-              <div>
-                  <div class="flex items-center mb-1">
-                      <div class="text-2xl font-semibold">15</div>
-                  </div>
-                  <div class="text-sm font-medium text-gray-400">Perawat</div>
               </div>
           </div>       
         </div>

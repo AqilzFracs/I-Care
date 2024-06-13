@@ -59,61 +59,23 @@ class Pasien_model
   }
 
   public function tambahDataPasien($data)
-{
-    $target_dir = "img/";
-    $target_file = $target_dir . basename($_FILES["image"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+  {
+    $query = "INSERT INTO pasien
+                VALUES
+            ('', :nama, :jenis_kelamin, :Tanggal_Lahir, :Alamat, :Poli, :Status)";
+    
+    $this->db->query($query);
+    $this->db->bind("nama", $data["nama"]);
+    $this->db->bind("jenis_kelamin", $data["jenis_kelamin"]);
+    $this->db->bind("Tanggal_Lahir", $data["Tanggal_Lahir"]);
+    $this->db->bind("Alamat", $data["Alamat"]);
+    $this->db->bind("Poli", $data["Poli"]);
+    $this->db->bind("Status", $data["Status"]);
 
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo "File bukan gambar.";
-            $uploadOk = 0;
-        }
-    }
+    $this->db->execute();
+    return $this->db->rowCount();
 
-    if (file_exists($target_file)) {
-        echo "Maaf, file sudah ada.";
-        $uploadOk = 0;
-    }
-
-    if ($_FILES["image"]["size"] > 500000) {
-        echo "Maaf, ukuran file terlalu besar.";
-        $uploadOk = 0;
-    }
-
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-        echo "Maaf, hanya format JPG, JPEG, PNG & GIF yang diperbolehkan.";
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-        echo "Maaf, file tidak diunggah.";
-    } else {
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
-            $query = "INSERT INTO pasien
-                    VALUES
-                ('', :nama, :jenis_kelamin, :Tanggal_Lahir, :Alamat, :Poli, :Status, :image_path)";
-
-            $this->db->query($query);
-            $this->db->bind("nama", $data["nama"]);
-            $this->db->bind("jenis_kelamin", $data["jenis_kelamin"]);
-            $this->db->bind("Tanggal_Lahir", $data["Tanggal_Lahir"]);
-            $this->db->bind("Alamat", $data["Alamat"]);
-            $this->db->bind("Poli", $data["Poli"]);
-            $this->db->bind("Status", $data["Status"]);
-            $this->db->bind("image_path", $target_file);
-            
-            $this->db->execute();
-            return $this->db->rowCount();
-        } else {
-            echo "Maaf, terjadi kesalahan saat mengunggah file.";
-        }
-    }
-}
+  }
 
 
   public function getPasienById($id)

@@ -14,11 +14,11 @@ class Pasien extends Controller {
   {
     if ($this->model("Pasien_model")->tambahDataPasien($_POST) > 0){
       Flasher::setFlash('Data Pasien', 'berhasil', 'ditambahkan', 'success');
-      header("Location:" . BASEURL . "/Pasien");
+      header("Location:" . BASEURL . "/pasien");
       exit;
     } else{
       Flasher::setFlash('Data Pasien', 'gagal', 'ditambahkan', 'danger');
-      header("Location:" . BASEURL . "/Pasien");
+      header("Location:" . BASEURL . "/pasien");
       exit;
     }
   }
@@ -32,11 +32,11 @@ class Pasien extends Controller {
   {
     if ($this->model("Pasien_model")->ubahDataPasien($_POST) > 0){
       Flasher::setFlash('Data Pasien', 'berhasil', 'diubah', 'success');
-      header("Location:" . BASEURL . "/Pasien");
+      header("Location:" . BASEURL . "/pasien");
       exit;
     } else{
       Flasher::setFlash('Data Pasien', 'gagal', 'diubah', 'danger');
-      header("Location:" . BASEURL . "/Pasien");
+      header("Location:" . BASEURL . "/pasien");
       exit;
     }
   }

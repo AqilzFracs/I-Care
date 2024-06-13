@@ -12,7 +12,7 @@ class Login_model{
 
   public function login($data)
   {
-    $query = "SELECT * FROM " . $this->table ."
+    $query = "SELECT role FROM " . $this->table ."
               WHERE 
               username = :username AND password = :password";
 
@@ -21,6 +21,6 @@ class Login_model{
     $this->db->bind("password", $data["password"]);
 
     $this->db->execute();
-    return $this->db->rowCount();
+    return $this->db->single();
   }
 }

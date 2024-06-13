@@ -20,13 +20,25 @@
           </a>
       </li>
       <li class="mb-2 group">
+          <a href="<?= BASEURL ?>/Dokter" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+            <i class="ri-user-3-line mr-2 text-xl"></i>
+            <span class="text-base">Dokter</span>
+          </a>
+      </li>
+      <li class="mb-2 group">
           <a href="<?= BASEURL ?>/InsertDataPasien" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
             <i class="ri-insert-row-top mr-2 text-xl"></i>
             <span class="text-base">Tambah Pasien</span>
           </a>
       </li>
+      <li class="mb-2 group">
+          <a href="<?= BASEURL ?>/InsertDataDokter" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md group-[.active]:bg-green-950 group-[.active]:text-gray-400">
+            <i class="ri-insert-row-top mr-2 text-xl"></i>
+            <span class="text-base">Tambah Dokter</span>
+          </a>
+      </li>
       <li class="items-baseline mb-2">
-          <a href="<?= BASEURL ?>" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
+          <a href="<?= BASEURL ?>/Login/logout" class="flex items-center py-2 px-4 text-gray-100 hover:bg-green-800 hover:text-gray-400 rounded-md">
             <i class="ri-logout-box-r-line mr-2 text-xl"></i>
             <span class="text-base">Logout</span>
           </a>
@@ -48,9 +60,6 @@
       </ul>
       <ul class="ml-auto flex items-center"> 
         <li class="mr-1 dropdown">
-          <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:text-green-950">
-            <i class="ri-search-line"></i>
-          </button>
           <div class="hidden dropdown-menu shadow-md shadow-black/5 absolute max-w-xs w-full bg-white rounded-md border border-gray-100">
             <form action="" class="p-4 border-b border-b-gray-100">
               <div class="relative w-full">
@@ -79,7 +88,6 @@
           <tr>
             <form method="post" action="">
               <th class="p-3 text-sm font-semibold tracking-wide text-left ">ID</th>
-              <th class="p-3 text-sm font-semibold tracking-wide text-left ">Foto Profil</th>
               <th class="p-3 text-sm font-semibold tracking-wide text-left ">Nama Pasien</th>
               <th class="p-3 text-sm font-semibold tracking-wide text-left ">Jenis Kelamin</th>
               <th class="p-3 text-sm font-semibold tracking-wide text-left ">Tanggal Lahir</th>
@@ -94,9 +102,6 @@
           <?php foreach ( $data["psn"] as $psn) : ?>
             <tr class="bg-white border-b-2 border-green-800">
               <td class="p-3 text-sm text-gray-700"><?= $psn['ID_Pasien']; ?></td>
-              <td class="p-3 text-sm text-gray-700">
-                <img src="<?= BASEURL ?>/img/<?= basename($psn['image_path']); ?>" class="object-cover rounded-sm w-10 h-10" alt="">
-              </td>
               <td class="p-3 text-sm text-gray-700"><?= $psn['nama']; ?></td>
               <td class="p-3 text-sm text-gray-700"><?= $psn['jenis_kelamin']; ?></td>
               <td class="p-3 text-sm text-gray-700"><?= $psn['Tanggal_Lahir']; ?></td>
@@ -113,8 +118,7 @@
       </table>
     </div>
     
-    <div id="editModal" tabindex="-1" aria-hidden="true"
-        class="hidden flex fixed z-50 justify-center items-center w-full inset-0">
+    <div id="editModal" tabindex="-1" aria-hidden="true" class="hidden flex fixed z-50 justify-center items-center w-full inset-0">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
             <div class="relative bg-gray-100 rounded-lg shadow">
@@ -122,7 +126,7 @@
                 <div
                     class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-black">
-                        Edit Product
+                        Edit Pasien
                     </h3>
                     <button type="button" onclick=closeModal();
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -181,7 +185,7 @@
                       </select>
                   </div>
                   <div>
-                    <button type="submit" name="submit" class="focus:outline-none text-white bg-green-800 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Tambah Data</button>
+                    <button type="submit" name="submit" class="focus:outline-none text-white bg-green-800 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Edit Data</button>
                   </div>
                 </form>
             </div>
@@ -189,18 +193,26 @@
     </div>
 
     <script>
+    // function openModal(productId) {
+    //     var modal = document.getElementById("editModal");
+    //     modal.classList.remove("hidden");
+    //     const idProduct = document.getElementById('id');
+    //     idProduct.value = productId;
+    //     console.log(idProduct.value)
+    // }
     function openModal(productId) {
-        var modal = document.getElementById("editModal");
-        modal.classList.remove("hidden");
-        const idProduct = document.getElementById('id');
-        idProduct.value = productId; // Set nilai input tersembunyi
-        console.log(idProduct.value)
+      var modal = document.getElementById("editModal");
+      modal.classList.remove("hidden");
+      fetchPasienData(productId); // Call the function from ajax.js
     }
 
     function closeModal() {
-        var modal = document.getElementById("editModal");
-        // modal.classList.remove("block");
-        modal.classList.add("hidden");
+      var modal = document.getElementById("editModal");
+      modal.classList.add("hidden");
     }
+    // function closeModal() {
+    //     var modal = document.getElementById("editModal");
+    //     modal.classList.add("hidden");
+    // }
     </script>
   </main>
